@@ -1,4 +1,4 @@
-FROM intel/oneapi-hpckit:2022.2-devel-ubuntu20.04
+FROM intel/oneapi-hpckit:2023.1.0-devel-ubuntu20.04
 
 MAINTAINER Henry Wang <henryw7@stanford.edu>
 
@@ -35,6 +35,8 @@ RUN make install
 ENV PATH="/software/bagel/bin:$PATH"
 ENV LD_LIBRARY_PATH="/software/bagel/lib:$LD_LIBRARY_PATH"
 ENV LIBRARY_PATH="/software/bagel/lib:$LIBRARY_PATH"
+
+WORKDIR /installers
 
 # Otherwise BAGEL will Segmentation fault (core dumped)
 ENV I_MPI_FABRICS="shm"
